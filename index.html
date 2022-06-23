@@ -10,6 +10,89 @@
 
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9);
+  /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+
+}
 </style>
 </head>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
@@ -20,15 +103,17 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
       <i class="fa fa-remove"></i>
     </a>
-    <img src="/w3images/avatar_g2.jpg" style="width:45%;" class="w3-round"><br><br>
-    <h4><b>PORTFOLIO</b></h4>
-    <p class="w3-text-grey">Template by W3.CSS</p>
+    <center><img src = "img/logo.png" width="200" height="200"></center>
+    <p class="w3-text-grey">Welcome! Thank you for visiting. My name is Susan. I am an amateur artist who enjoys
+    painting and drawing every so often as a hobby. By day, I work in data analytics, so art is a great way for
+    me to de-stress.</p>
+    <p class="w3-text-grey">Over the years, I have compiled a sizeable amount of canvases and drawings that have
+    been sitting in the corner of the room. I decided to create this page to share some of my work and maybe even
+      fund some of my artistic endeavors!</p>
+    <p class="w3-text-grey">Regardless, thank you for visiting and I hope you enjoy! Feel free to contact me via the
+      form on this page or directly via email at shdoong@gmail.com</p>
   </div>
-<!--  <div class="w3-bar-block">-->
-<!--    <a href="#pieces" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fa fa-th-large fa-fw w3-margin-right"></i>PORTFOLIO</a>-->
-<!--    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>ABOUT</a>-->
-<!--    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACT</a>-->
-<!--  </div>-->
+
 </nav>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -42,69 +127,186 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <a href="#"><img src="/w3images/avatar_g2.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
     <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div class="w3-container">
-    <h1><b>My Portfolio</b></h1>
-    <div class="w3-section w3-bottombar w3-padding-16">
-      <div class = "tab">
-        <button class="tablinks" onclick="openCat(event, 'acrylic')">Acrylic Paintings</button>
-        <button class="tablinks" onclick="openCat(event, 'pencil')">Pencil Drawings</button>
+      <h1><b>Portfolio</b></h1>
+      <div class="w3-section w3-bottombar w3-padding-16">
+        <div class = "tab">
+          <button class="tablinks" onclick="openCat(event, 'acrylic')" id = "defaultOpen">Acrylic Paintings</button>
+          <button class="tablinks" onclick="openCat(event, 'pencil')">Drawings</button>
+          <button class="tablinks" onclick="openCat(event, 'additional')">Additional Work</button>
+        </div>
       </div>
-    </div>
     </div>
   </header>
 
 
   <!-- First Photo Grid-->
-  <div id = "acrylic" class = "tabcontent">
+  <div id = "acrylic" class = "tabcontent w3-row-padding">
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="birds.jpg" alt="Bird-Abstract" style="width:100%" class="w3-hover-opacity">
+      <img src="img/birds.jpg" alt="Bird-Abstract" style="width:100%" class="myImages w3-hover-opacity">
       <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        <center><b>Birds in Flight</b></center>
+        <center>36"x48" on Canvas</center>
+        <center>$200</center>
       </div>
+
     </div>
     <div class="w3-third w3-container w3-margin-bottom">
-      <img src="birds.jpg" alt="Norway" style="width:100%" class="w3-hover-opacity">
+      <img src="img/leaves-from-vine.jpg" alt="Leaves-from-the-Vine" style="width:100%" class="myImages w3-hover-opacity">
       <div class="w3-container w3-white">
-        <p><b>Lorem Ipsum</b></p>
-        <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+        <center><b>Leaves from the Vine</b></center>
+        <center>18"x24" on Canvas</center>
+        <center>$85</center>
+      </div>
+
+      <img src="img/oogway-ascends.jpg" alt="Oogway-ascends" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Oogway Ascends Inspired</b></center>
+        <center>18"x24" on Canvas</center>
+        <center>$85</center>
+      </div>
+
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/fantasy.jpg" alt="fantasy" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Fantasy</b></center>
+        <center>9"x12" on Canvas</center>
+        <center>$50</center>
       </div>
     </div>
   </div>
 
-  <!-- Second Photo Grid-->
-  <div class="tabcontent" id = "pencil">
+  <!-- Second Grid -->
+  <div id = "pencil" class = "tabcontent w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/p1.jpg" alt="p1" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Pencil 1</b></center>
+        <center>9"x12" on Paper</center>
+        <center>$40</center>
+      </div>
 
+      <img src="img/p3.jpg" alt="p3" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Colored Pencil + Pastel</b></center>
+        <center>9"x12" on Paper</center>
+        <center>$40</center>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/p2.jpg" alt="p2" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Colored Pencil 1</b></center>
+        <center>9"x12" on Paper</center>
+        <center>$40</center>
+      </div>
+    </div>
+
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/leopard.jpg" alt="p3" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Colored Pencil Leopard</b></center>
+        <center>9"x12" on Paper</center>
+        <center>$40</center>
+      </div>
+
+    </div>
   </div>
+
+    <!-- Third Photo Grid-->
+  <div id = "additional" class = "w3-row-padding tabcontent">
+    <div class="w3-third">
+      <img src="img/portrait1.jpg" alt="portrait1" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Portrait 1</b></center>
+      </div>
+
+      <img src="img/engagement.jpg" alt="engagement" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Engagement</b></center>
+      </div>
+    </div>
+
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/portrait2.jpg" alt="portrait2" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Portrait 2</b></center>
+      </div>
+
+      <img src="img/lonely-mountain.jpg" alt="Lonely-Mountain" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>The Lonely Mountain</b></center>
+      </div>
+
+      <img src="img/oreo.jpg" alt="dog" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Oreo Portrait</b></center>
+      </div>
+    </div>
+
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/portrait3.jpg" alt="portrait3" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Portrait 3</b></center>
+      </div>
+
+      <img src="img/profile.jpg" alt="profile" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Profile</b></center>
+      </div>
+
+      <img src="img/puppies.jpg" alt="dogs" style="width:100%" class="myImages w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <center><b>Dog Portrait</b></center>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- The Modal -->
+  <div id="myModal" class="modal">
+
+    <!-- The Close Button -->
+    <span class="close">&times;</span>
+
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+  </div>
+
 
 
   <div class="w3-container w3-padding-large" style="margin-bottom:32px">
-    <h4><b>About Me</b></h4>
-    <p>Just me, myself and I, exploring the universe of unknownment. I have a heart of love and an interest of lorem ipsum and mauris neque quam blog. I want to share my world with you. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-    <hr>
 
-  <!-- Contact Section -->
-  <div class="w3-container w3-padding-large w3-grey">
-    <h4 id="contact"><b>Contact Me</b></h4>
+    <!-- Contact Section -->
+    <div class="w3-container w3-padding-large w3-grey">
+      <h4 id="contact"><b>Contact Me</b></h4>
 
-  </div>
-
-  <!-- Footer -->
-  <footer class="w3-container w3-padding-32 w3-dark-grey">
-  <div class="w3-row-padding">
-    <div class="w3-third">
-      <h3>FOOTER</h3>
-      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+      <form action="https://formspree.io/f/xbjweyrw" method="POST">
+        <div class="w3-section">
+          <label>Name</label>
+          <input class="w3-input w3-border" type="text" name="Name" required>
+        </div>
+        <div class="w3-section">
+          <label>Email</label>
+          <input class="w3-input w3-border" type="text" name="Email" required>
+        </div>
+        <div class="w3-section">
+          <label>Message</label>
+          <input class="w3-input w3-border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+      </form>
     </div>
   </div>
-  </footer>
-
-  <div class="w3-black w3-center w3-padding-24">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></div>
-  </div>
-<!-- End page content -->
 </div>
 
+
 <script>
+document.getElementById("defaultOpen").click();
+
 // Script to open and close sidebar
 function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
@@ -136,6 +338,33 @@ function openCat(evt, catName) {
   document.getElementById(catName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+// create references to the modal...
+var modal = document.getElementById('myModal');
+// to all images -- note I'm using a class!
+var images = document.getElementsByClassName('myImages');
+// the image in the modal
+var modalImg = document.getElementById("img01");
+// and the caption in the modal
+var captionText = document.getElementById("caption");
+
+// Go through all of the images with our custom class
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  // and attach our click listener for this image.
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
 </script>
 
 
